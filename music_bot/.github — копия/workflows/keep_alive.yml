@@ -1,0 +1,15 @@
+name: Keep Render Bot Alive
+
+on:
+  schedule:
+    # Har 5 daqiqada ishga tushadi (GitHub free tarif uchun bu eng kichik
+    # ishonchli interval - GitHub ba'zan kechiktirishi mumkin, bu normal holat)
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render service
+        run: curl -fsS https://SIZNING-APP-NOMINGIZ.onrender.com/ || true
