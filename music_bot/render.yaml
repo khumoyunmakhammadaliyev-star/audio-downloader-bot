@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: audio-bot
+    env: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: PORT
+        value: 10000
